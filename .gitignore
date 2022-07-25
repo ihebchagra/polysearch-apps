@@ -1,3 +1,19 @@
+# Custom Database files
+*.pdf
+*courscommuns.js
+*dcem1.js
+*dcem1_titres.js
+*dcem2.js
+*dcem2_titres.js
+*dcem3.js
+*dcem3_titres.js
+*pcem1.js
+*pcem1_titres.js
+*pcem2.js
+*pcem2_titres.js
+*pdfjs*
+
+
 # Built application files
 *.apk
 *.aar
