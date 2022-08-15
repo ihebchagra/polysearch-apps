@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 return assetLoader.shouldInterceptRequest(request.getUrl());
             }
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (url != null && (url.startsWith("https://ihebchagra.github.io") || url.startsWith("https://m.me") || url.startsWith("mailto:"))) {
+                if (url != null && (url.startsWith("https://ihebchagra.github.io") || url.startsWith("https://m.me") || url.startsWith("mailto:") || url.startsWith("https://www.gnu.org") || url.startsWith("https://github.com") || url.startsWith("https://play.google.com"))) {
                     view.getContext().startActivity(
                             new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
                     return true;
