@@ -146,7 +146,6 @@ function search(){
 			.replace(/['\\#{}\[\]-_\(\)`"\.\+\*]/g,' ')
 			.replace(/\b(de|du|[a-z]{1}\b|la|le|un|leur)\b/g,' ')
 			.replace(/\s+/g, ' ').trim()
-			.replace(/oe/g,".{1,2}")
 			.replace(/([a-z])\1+/g,"$1")
 			.replace(/([a-z])/g,"$1+")
 			.replace(/e/g,"[éèêe]")

@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
         WebSettings webViewSettings = webView.getSettings();
         webViewSettings.setJavaScriptEnabled(true);
         webView.setBackgroundColor(Color.TRANSPARENT);
-        webView.loadUrl("https://appassets.androidplatform.net/assets/www/index.html");
+        if (savedInstanceState == null) {
+            webView.loadUrl("https://appassets.androidplatform.net/assets/www/index.html");
+        }
     }
 
     @Override
@@ -56,5 +58,21 @@ public class MainActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        WebView webView = findViewById(R.id.webview);
+        super.onSaveInstanceState(outState);
+        webView.saveState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        WebView webView = findViewById(R.id.webview);
+        super.onRestoreInstanceState(savedInstanceState);
+        webView.restoreState(savedInstanceState);
     }
 }

@@ -306,7 +306,6 @@ function search(){
 			.replace(/['\\#{}\[\]-_\(\)`"\.\+\*]/g,' ')
 			.replace(/\b(de|du|[a-z]{1}\b|la|le|un|leur)\b/g,' ')
 			.replace(/\s+/g, ' ').trim()
-			.replace(/oe/g,".{1,2}")
 			.replace(/([a-z])\1+/g,"$1")
 			.replace(/([a-z])/g,"$1+")
 			.replace(/e/g,"[éèêe]")
@@ -354,12 +353,14 @@ function search(){
 			matches = obj[files[i]][j].match(re)
 			if(matches != null){
 				n+=1
+				//page
+                page=j+1
 				//title
 				if((titles!=null) && (Object.keys(titles).includes(files[i]))){
 					var title = "Plan"
 					title_pages = Object.keys(titles[files[i]])
 					for(var b=0; b<title_pages.length; b++){
-						if (j<title_pages[b])
+						if (page<title_pages[b])
 							break;
 						title = titles[files[i]][title_pages[b]]
 					}
@@ -386,8 +387,6 @@ function search(){
 				}
 				//excerpt
 				excerpt = makeExcerpt(obj[files[i]][j],matches)
-				//page
-				page=j+1
 				//niveau
 				if (Object.keys(pcem1_titres).includes(files[i])){
 					niveau = "PCEM1"
